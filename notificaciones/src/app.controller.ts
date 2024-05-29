@@ -5,8 +5,13 @@ import { EventPattern } from '@nestjs/microservices';
 @Controller()
 export class AppController {
   constructor(private readonly appService: AppService) {}
+
+  @Get('status/:id')
+  handleGetStatus(@Param() id: String) {
+    return this.appService.handleGetStatus(id);
+  }
   
-  @EventPattern('NOTIFICACIONES')
+  @EventPattern('notificaciones')
   handleCreateOrder(data: any) {
     this.appService.handleCreateOrder(data);
   }

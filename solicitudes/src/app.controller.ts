@@ -1,8 +1,6 @@
-import { Body, Controller, Get, Inject, OnModuleInit, Param, Post } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post } from '@nestjs/common';
 import { AppService } from './app.service';
 import { CreateOrderRequest } from './create-order-request.dto';
-import { ClientKafka, EventPattern } from '@nestjs/microservices';
-import { firstValueFrom, Observable } from 'rxjs';
 
 @Controller()
 export class AppController {

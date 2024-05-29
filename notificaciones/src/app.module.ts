@@ -15,7 +15,6 @@ import { MailerModule } from '@nestjs-modules/mailer';
         auth: {
             user: 'pruebasdt2.2024@gmail.com',
             pass: process.env.PASS_GOOGLE,
-            // ifuq zxih ikxw nfcw
         },
       }
     })
