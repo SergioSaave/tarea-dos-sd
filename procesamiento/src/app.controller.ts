@@ -1,6 +1,6 @@
 import { Controller, Get } from '@nestjs/common';
 import { AppService } from './app.service';
-import { EventPattern } from '@nestjs/microservices';
+import { EventPattern, Payload } from '@nestjs/microservices';
 import { CreateOrderEvent } from './create-order.event';
 import { ProcessOrderRequest } from './process-order.event';
 
@@ -8,14 +8,23 @@ import { ProcessOrderRequest } from './process-order.event';
 export class AppController {
   constructor(private readonly appService: AppService) { }
 
-  @EventPattern('crear_solicitud')
-  handleCreateOrder(data: CreateOrderEvent) {
-    this.appService.handleCreateOrder(data);
+  @EventPattern('recibe_solicitud')
+  handleRecibeOrden(data: CreateOrderEvent) {
+    this.appService.handleRecibeOrden(data);
   }
 
-  @EventPattern('procesar_solicitud')
-  handleProcessOrder(data: ProcessOrderRequest) {
-    this.appService.handleProcessOrder(data);
+  @EventPattern('prepara_solicitud')
+  handlePreparaOrden(data: ProcessOrderRequest) {
+    this.appService.handlePreparaOrden(data);
   }
 
+  @EventPattern('entrega_solicitud')
+  handleEntregaOrden(data: ProcessOrderRequest) {
+    this.appService.handleEntregaOrden(data);
+  }
+
+  @EventPattern('finaliza_solicitud')
+  handleFinalizaOrden(data: ProcessOrderRequest) {
+    this.appService.handleFinalizaOrden(data);
+  }
 }

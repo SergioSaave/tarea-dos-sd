@@ -1,4 +1,4 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, Param } from '@nestjs/common';
 import { AppService } from './app.service';
 import { EventPattern } from '@nestjs/microservices';
 
@@ -6,8 +6,13 @@ import { EventPattern } from '@nestjs/microservices';
 export class AppController {
   constructor(private readonly appService: AppService) {}
   
-  @EventPattern('status')
+  @EventPattern('NOTIFICACIONES')
   handleCreateOrder(data: any) {
     this.appService.handleCreateOrder(data);
   }
+
+  // @Get('status/:id')
+  // handleGetStatus(@Param() id: string) {
+  //   return this.appService.handleGetStatus(id);
+  // }
 }

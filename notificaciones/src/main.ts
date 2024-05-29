@@ -18,5 +18,7 @@ async function bootstrap() {
     }
   );
   app.listen()
+  const app2 = await NestFactory.create(AppModule);
+  app2.listen(3001);
 }
 bootstrap();
