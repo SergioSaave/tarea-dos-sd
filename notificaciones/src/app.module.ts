@@ -23,5 +23,3 @@ import { MailerModule } from '@nestjs-modules/mailer';
   providers: [AppService],
 })
 export class AppModule {}
-
-// ifuq zxih ikxw nfcw
